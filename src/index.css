@@ -1,0 +1,519 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Space Grotesk", "Outfit", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Base style resets and futuristic backgrounds */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0d0104; /* Extra dark abyss black with burgundy undertone */
+  color: #fcf6f7;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Mobile-first responsive text */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+  
+  h1 { font-size: 32px !important; line-height: 1.2; }
+  h2 { font-size: 24px !important; }
+  h3 { font-size: 18px !important; }
+}
+
+/* Futuristic Hologram Grid Overlay */
+.holo-grid {
+  background-image: 
+    linear-gradient(rgba(128, 0, 32, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(128, 0, 32, 0.08) 1px, transparent 1px);
+  background-size: 30px 30px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Hologram Scanning Line Effect */
+.holo-scanner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(to right, transparent, rgba(239, 68, 68, 0.3), rgba(255, 255, 255, 0.6), rgba(239, 68, 68, 0.3), transparent);
+  box-shadow: 0 0 10px rgba(128, 0, 32, 0.5), 0 0 20px rgba(239, 68, 68, 0.2);
+  animation: scan-vertical 8s infinite linear;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.6;
+}
+
+/* Luxury Liquid Glass Cards - Enhanced */
+.liquid-glass {
+  background: rgba(45, 6, 13, 0.55); /* Translucent warm deep burgundy */
+  backdrop-filter: blur(14px) saturate(180%);
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 8px 32px 0 rgba(13, 1, 4, 0.4),
+    inset 0 0 15px rgba(255, 68, 68, 0.03),
+    0 0 0 1px rgba(128, 0, 32, 0.2);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.liquid-glass:hover {
+  border-color: rgba(239, 68, 68, 0.35);
+  box-shadow: 
+    0 8px 32px 0 rgba(128, 0, 32, 0.2),
+    inset 0 0 18px rgba(255, 255, 255, 0.03),
+    0 0 10px rgba(128, 0, 32, 0.1);
+}
+
+/* Pure holographic immersive items */
+.holo-card {
+  background: rgba(13, 1, 4, 0.8);
+  border: 1px solid rgba(128, 0, 32, 0.4);
+  box-shadow: 
+    0 0 15px rgba(128, 0, 32, 0.2),
+    inset 0 0 25px rgba(128, 0, 32, 0.1);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.holo-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.05),
+    transparent
+  );
+  transform: rotate(30deg);
+  transition: transform 0.8s ease;
+  pointer-events: none;
+}
+
+.holo-card:hover::before {
+  transform: rotate(30deg) translate(50%, -30%);
+}
+
+.holo-accent-glow {
+  box-shadow: 0 0 30px rgba(128, 0, 32, 0.6);
+}
+
+/* Luxury Button Styles */
+.holo-btn {
+  background: linear-gradient(135deg, #800020, #400010);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 10px rgba(128, 0, 32, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.holo-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transition: left 0.5s ease;
+}
+
+.holo-btn:hover:not(:disabled)::before {
+  left: 100%;
+}
+
+.holo-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #a00028, #600018);
+  border-color: #ffffff;
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.5), 0 0 4px rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+.holo-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+  .holo-btn {
+    padding: 12px 20px !important;
+    font-size: 12px !important;
+  }
+  
+  .liquid-glass {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+}
+
+/* Scrollbar customizations - Luxury look */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(13, 1, 4, 0.9);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #800020, #400010);
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #ef4444, #dc2626);
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-color: #800020 rgba(13, 1, 4, 0.9);
+  scrollbar-width: thin;
+}
+
+/* Critical animations */
+@keyframes scan-vertical {
+  0% {
+    top: 0%;
+  }
+  50% {
+    top: 100%;
+  }
+  100% {
+    top: 0%;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Custom glow dot */
+.status-glow {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #22c55e;
+  box-shadow: 0 0 8px #22c55e, 0 0 15px #22c55e;
+  display: inline-block;
+  animation: pulse-glow 2s infinite;
+}
+
+.status-glow-red {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #ef4444;
+  box-shadow: 0 0 8px #ef4444, 0 0 15px #ef4444;
+  display: inline-block;
+  animation: pulse-glow 2s infinite;
+}
+
+/* Ambient glow blobs in backdrop - Luxury enhancement */
+.ambient-blob-1 {
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(128, 0, 32, 0.15) 0%, transparent 70%);
+  top: -100px;
+  right: -100px;
+  pointer-events: none;
+  z-index: 0;
+  animation: float 6s ease-in-out infinite;
+}
+
+.ambient-blob-2 {
+  position: fixed;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(128, 0, 32, 0.12) 0%, transparent 75%);
+  bottom: -200px;
+  left: -200px;
+  pointer-events: none;
+  z-index: 0;
+  animation: float 8s ease-in-out infinite 1s;
+}
+
+/* Responsive input styling */
+input, textarea, select {
+  transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  transform: translateY(-2px);
+}
+
+/* Print/Case Summary Export styling */
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+  
+  .no-print {
+    display: none !important;
+  }
+  
+  .holo-btn, .liquid-glass, .holo-card {
+    box-shadow: none !important;
+    border: 1px solid #000 !important;
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Dark mode optimization */
+@media (prefers-color-scheme: dark) {
+  body {
+    color-scheme: dark;
+  }
+}
+
+/* Touch-friendly targets */
+@media (max-width: 768px) {
+  button, a, input, select, textarea {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Pure holographic immersive items */
+.holo-card {
+  background: rgba(13, 1, 4, 0.8);
+  border: 1px solid rgba(128, 0, 32, 0.4);
+  box-shadow: 
+    0 0 15px rgba(128, 0, 32, 0.2),
+    inset 0 0 25px rgba(128, 0, 32, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.holo-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.05),
+    transparent
+  );
+  transform: rotate(30deg);
+  transition: transform 0.8s ease;
+  pointer-events: none;
+}
+
+.holo-card:hover::before {
+  transform: rotate(30deg) translate(50%, -30%);
+}
+
+.holo-accent-glow {
+  box-shadow: 0 0 30px rgba(128, 0, 32, 0.6);
+}
+
+.holo-btn {
+  background: linear-gradient(135deg, #800020, #400010);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 10px rgba(128, 0, 32, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: all 0.3s ease;
+}
+
+.holo-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #a00028, #600018);
+  border-color: #ffffff;
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.5), 0 0 4px rgba(255, 255, 255, 0.5);
+  transform: translateY(-1px);
+}
+
+/* Scrollbar customizations */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(13, 1, 4, 0.9);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #800020;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ef4444;
+}
+
+/* Critical animations */
+@keyframes scan-vertical {
+  0% {
+    top: 0%;
+  }
+  50% {
+    top: 100%;
+  }
+  100% {
+    top: 0%;
+  }
+}
+
+/* Custom glow dot */
+.status-glow {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #22c55e;
+  box-shadow: 0 0 8px #22c55e, 0 0 15px #22c55e;
+  display: inline-block;
+}
+
+.status-glow-red {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #ef4444;
+  box-shadow: 0 0 8px #ef4444, 0 0 15px #ef4444;
+  display: inline-block;
+}
+
+/* Ambient glow blobs in backdrop */
+.ambient-blob-1 {
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(128, 0, 32, 0.15) 0%, transparent 70%);
+  top: -100px;
+  right: -100px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ambient-blob-2 {
+  position: fixed;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(128, 0, 32, 0.12) 0%, transparent 75%);
+  bottom: -200px;
+  left: -200px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Print/Case Summary Export styling */
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-area {
+    display: block !important;
+    background: white !important;
+    color: black !important;
+    box-shadow: none !important;
+    border: none !important;
+    backdrop-filter: none !important;
+  }
+}
+
+@keyframes shine {
+  0% { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
+
+.shining-text {
+  background: linear-gradient(
+    120deg, 
+    #800020 0%, 
+    #ff1a1a 25%, 
+    #ffd700 50%, 
+    #ff1a1a 75%, 
+    #800020 100%
+  );
+  background-size: 200% 100%;
+  display: inline-block;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #ff1a1a; /* Fallback color */
+  animation: shine 3s linear infinite;
+  filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.4));
+  font-weight: 900;
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 8px 32px 0 rgba(13, 1, 4, 0.4);
+  }
+  50% {
+    transform: scale(1.02);
+    box-shadow: 0 15px 45px rgba(255, 26, 26, 0.2);
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 4s ease-in-out infinite;
+}

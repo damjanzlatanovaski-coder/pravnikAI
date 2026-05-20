@@ -1,0 +1,6 @@
+{
+  "name": "pravnik.ai",
+  "description": "Интелигентен ко-пилот за македонски адвокати и правни фирми: правно истражување на закони и устав, холографски преглед на предмети, безбедна комуникација, анализа на договори, превод на правни списи и KPI извештаи.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
