@@ -1304,7 +1304,7 @@ ${k.courtWinDistribution.map((c) => `  * ${c.name}: ${c.вредност}% од 
 
             <div className="mt-20 mb-24 text-center relative z-50">
               <p className="shining-text text-4xl md:text-6xl lg:text-8xl font-black italic tracking-tighter">
-                „Искористи го ПРМО КОДОТ: ProfValentin2026 за 10% попуст“
+                „Искористи го ПРОМО КОДОТ: ProfValentin2026 за 10% попуст“
               </p>
             </div>
           </section>

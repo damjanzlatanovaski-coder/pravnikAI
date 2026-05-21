@@ -84,7 +84,6 @@ npm install
 
 # 3. Configure environment
 # .env already contains the Gemini API key:
-# GEMINI_API_KEY=AIzaSyA83XPKGIn4BRxCHWul3ezoR5Qp4RQRf1k
 
 # 4. Development server
 npm run dev
